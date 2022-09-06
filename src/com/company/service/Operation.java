@@ -15,10 +15,11 @@ public interface Operation {
 
 
     Product[] getProductByCategory(String category);
+    Product[] getInfo(Product[] products);
 
     ProductCategory[]getCategories();
 
-    void getInfo();
+
 
 
 }

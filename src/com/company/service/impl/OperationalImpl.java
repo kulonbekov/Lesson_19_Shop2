@@ -3,12 +3,16 @@ package com.company.service.impl;
 import com.company.enums.Measure;
 import com.company.enums.ProductCategory;
 import com.company.models.*;
+import com.company.products.Bread;
+import com.company.products.Milk;
+import com.company.products.Sugar;
+import com.company.products.Water;
 import com.company.service.Operation;
 
 public class OperationalImpl implements Operation {
 
     Sugar sugar = new Sugar("Сахар",61, Measure.KG,ProductCategory.DAIRY);
-    Bread bread = new Bread("Кока-кола",61, Measure.KG,ProductCategory.BAKERY);
+    Bread bread = new Bread("Лепешка",61, Measure.PSC,ProductCategory.BAKERY);
     Milk milk = new Milk("Молоко",71,Measure.LI,ProductCategory.DAIRY);
     Water water = new Water("Вода",71,Measure.LI,ProductCategory.DRINKABLES);
 
@@ -30,40 +34,28 @@ public class OperationalImpl implements Operation {
             System.out.println(item.name());
         }
     }
-
     @Override
     public Product[] getProductByCategory(String category) {
         Product[] result = new Product[10];
-
             for(int i=0;i<products.length; i++){
                 if(products[i].getProductCategory().equals(ProductCategory.valueOf(category))) {
                     result[i] = products[i];
                 }
-
             }
-
-
-        return result;
+            return result;
     }
-
     @Override
     public ProductCategory[] getCategories() {
         return new ProductCategory[0];
     }
 
     @Override
-    public void getInfo() {
-
-        /*for (int i=0;i< products.length;i++){
-            if(products[i] != null) {
+    public  Product[] getInfo(Product[] products) {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] != null) {
                 System.out.println(products[i].getName() + " " + products[i].getCost());
             }
-        }*/
+        }
+        return null;
     }
-
-
-
-
-
-
 }

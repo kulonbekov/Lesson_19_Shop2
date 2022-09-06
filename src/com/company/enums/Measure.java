@@ -3,7 +3,7 @@ package com.company.enums;
 public enum Measure {
     KG("килограмм"),
     LI("литр"),
-    SHT("штук");
+    PSC("штук");
 
     String name;
 
