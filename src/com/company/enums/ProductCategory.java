@@ -2,7 +2,7 @@ package com.company.enums;
 
 public enum ProductCategory {
 
-    //BAKERY("хлебобулочные изделия"),
+    BAKERY("хлебобулочные изделия"),
     //VEGETABLES ("овощи"),
     //FRUIT("фрукты"),
     DRINKABLES("напитки"),

@@ -22,6 +22,7 @@ public class Main {
         String category = sc.next();
 
         Product[] products = operation.getProductByCategory(category);
+
         for (int i=0;i< products.length;i++){
             if(products[i] != null) {
                 System.out.println(products[i].getName() + " " + products[i].getCost());

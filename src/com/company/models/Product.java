@@ -49,11 +49,7 @@ public abstract class Product {
         this.productCategory = productCategory;
     }
 
-   /*@Override
-    public String toString() {
-        return super.toString();
-        for(Product item:getProductCategory.values()){
 
-        }
-    }*/
+
+
 }

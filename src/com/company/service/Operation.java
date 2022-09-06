@@ -17,4 +17,8 @@ public interface Operation {
     Product[] getProductByCategory(String category);
 
     ProductCategory[]getCategories();
+
+    void getInfo();
+
+
 }

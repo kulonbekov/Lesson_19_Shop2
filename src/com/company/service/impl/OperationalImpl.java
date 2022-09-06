@@ -8,11 +8,11 @@ import com.company.service.Operation;
 public class OperationalImpl implements Operation {
 
     Sugar sugar = new Sugar("Сахар",61, Measure.KG,ProductCategory.DAIRY);
-    Sugar kola = new Sugar("Кока-кола",61, Measure.KG,ProductCategory.DRINKABLES);
+    Bread bread = new Bread("Кока-кола",61, Measure.KG,ProductCategory.BAKERY);
     Milk milk = new Milk("Молоко",71,Measure.LI,ProductCategory.DAIRY);
-    Milk water = new Milk("Вода",71,Measure.LI,ProductCategory.DRINKABLES);
+    Water water = new Water("Вода",71,Measure.LI,ProductCategory.DRINKABLES);
 
-    Product[] products = {sugar,milk,kola,water};
+    Product[] products = {sugar,milk,bread,water};
 
     @Override
     public Receipt getReceipt(Order order) {
@@ -50,6 +50,20 @@ public class OperationalImpl implements Operation {
     public ProductCategory[] getCategories() {
         return new ProductCategory[0];
     }
+
+    @Override
+    public void getInfo() {
+
+        /*for (int i=0;i< products.length;i++){
+            if(products[i] != null) {
+                System.out.println(products[i].getName() + " " + products[i].getCost());
+            }
+        }*/
+    }
+
+
+
+
 
 
 }
