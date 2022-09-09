@@ -12,25 +12,37 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Operation operation = new OperationalImpl();
-        byte answer =0;
-
+        byte answer = 0;
+        Double doubleSum = 0.0;
         System.out.println("Добро пожаловать");
         int count = 0;
         Details[] details = new Details[10];
 
         while(answer!=1) {
             System.out.println("Выберите категорию продуктов");
+
             operation.getCategory();
+
             String category = sc.next();
+
             Product[] products = operation.getProductByCategory(category);
+
             operation.getInfo(products);
+
             System.out.println("Выберите продукт");
+
             String productName = sc.next();
+
             Product product = operation.getProductByName(productName);
+
             System.out.println("Выберите количество");
+
             int amount = sc.nextInt();
+
             System.out.println("Выберите скидку");
+
             int discount = sc.nextInt();
+
             Details detail = new Details(product, amount, discount);
 
             details[count] = detail;
@@ -39,22 +51,31 @@ public class Main {
 
             answer = sc.nextByte();
             count++;
+            doubleSum = doubleSum + ((amount * product.getCost()) - ((product.getCost() * discount)/100));
         }
 
         for(Details item: details){
             if(item!=null)
                 System.out.println(item);
         }
+        System.out.println("Список кассиров");
+        operation.getListCashier();
 
         System.out.println("Выберите кассира");
-        operation.getListCashier();
         String cashier = sc.next();
         Cashier res = operation.getCashierByName(cashier);
-
 
         Order order = new Order();
         order.setDetails(details);
         order.setCashier(res);
+
+        ReceiptDetails[] receiptDetails = new ReceiptDetails[10];
+        operation.getReceipt(order);
+
+
+
+
+
 
     }
 }

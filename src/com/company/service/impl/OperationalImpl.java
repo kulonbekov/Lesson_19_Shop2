@@ -4,13 +4,14 @@ import com.company.enums.*;
 import com.company.models.*;
 import com.company.products.*;
 import com.company.service.Operation;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 
 public class OperationalImpl implements Operation {
 
-    Sugar sugar = new Sugar("Сахар",61, Measure.KG,ProductCategory.DAIRY);
+    Sugar sugar = new Sugar("Сахар",60, Measure.KG,ProductCategory.DAIRY);
     Bread bread = new Bread("Лепешка",61, Measure.PSC,ProductCategory.BAKERY);
-    Milk milk = new Milk("Молоко",71,Measure.LI,ProductCategory.DAIRY);
+    Milk milk = new Milk("Молоко",70,Measure.LI,ProductCategory.DAIRY);
     Water water = new Water("Вода",71,Measure.LI,ProductCategory.DRINKABLES);
 
     Product[] products = {sugar,milk,bread,water};
@@ -20,31 +21,18 @@ public class OperationalImpl implements Operation {
 
     Cashier[] cashiers = {cashiers1,cashiers2};
 
-    @Override
-    public Receipt getReceipt(Order order) {
-        return null;
-    }
+
 
     @Override
     public Cashier getCashier(String name) {
         return null;
     }
-
     @Override
     public void getCategory() {
         for (ProductCategory item:ProductCategory.values()){
             System.out.println(item.name());
         }
     }
-
-    @Override
-    public void getListCashier() {
-        for (int i = 0; i < cashiers.length; i++) {
-            System.out.println(cashiers[i].getName());
-        }
-
-    }
-
     @Override
     public Product[] getProductByCategory(String category) {
         Product[] result = new Product[10];
@@ -54,10 +42,6 @@ public class OperationalImpl implements Operation {
                 }
             }
             return result;
-    }
-    @Override
-    public ProductCategory[] getCategories() {
-        return new ProductCategory[0];
     }
 
     @Override
@@ -88,4 +72,39 @@ public class OperationalImpl implements Operation {
         }
         return null;
     }
+    @Override
+    public void getListCashier() {
+        for (int i = 0; i < cashiers.length; i++) {
+            System.out.println(cashiers[i].getName());
+        }
+
+    }
+    @Override
+    public Receipt getReceipt(Order order) {
+        Details[] details = order.getDetails();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(details[i].getProduct().getName());
+            double cost = details[i].getProduct().getCost();
+            double discount = details[i].getDiscount();
+            double amount = details[i].getAmount();
+            double res = (cost * amount)- (((cost * amount)*discount)/100);
+            System.out.println(res);
+
+        }
+
+        return null;
+    }
 }
+
+
+/*Details[] details = order.getDetails();
+        for (int i = 0; i < 10; i++) {
+            details[i].setProduct(details);
+            System.out.println(details[i].getProduct().getName());
+            double cost = details[i].getProduct().getCost();
+            double discount = details[i].getDiscount();
+            double amount = details[i].getAmount();
+            double res = (cost * amount)- (((cost * amount)*discount)/100);
+            System.out.println(res);
+
+        }*/

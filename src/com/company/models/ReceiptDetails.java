@@ -2,20 +2,23 @@ package com.company.models;
 
 public class ReceiptDetails {
 
-    private String productName;
+    private Order[] order;
     private double sum;
 
-    public ReceiptDetails(String productName, double sum) {
-        this.productName = productName;
+    public ReceiptDetails(Order[] order, double sum) {
+        this.order = order;
         this.sum = sum;
     }
 
-    public String getProductName() {
-        return productName;
+    public ReceiptDetails() {
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public Order[] getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order[] order) {
+        this.order = order;
     }
 
     public double getSum() {
