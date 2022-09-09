@@ -20,6 +20,7 @@ public interface Operation {
     ProductCategory[]getCategories();
 
 
+    Product getProductByName(String productName);
 
-
+    Cashier getCashierByName(String cashier);
 }

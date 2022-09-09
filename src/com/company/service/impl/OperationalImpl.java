@@ -1,13 +1,10 @@
 package com.company.service.impl;
 
-import com.company.enums.Measure;
-import com.company.enums.ProductCategory;
+import com.company.enums.*;
 import com.company.models.*;
-import com.company.products.Bread;
-import com.company.products.Milk;
-import com.company.products.Sugar;
-import com.company.products.Water;
+import com.company.products.*;
 import com.company.service.Operation;
+
 
 public class OperationalImpl implements Operation {
 
@@ -17,6 +14,11 @@ public class OperationalImpl implements Operation {
     Water water = new Water("Вода",71,Measure.LI,ProductCategory.DRINKABLES);
 
     Product[] products = {sugar,milk,bread,water};
+
+    Cashier cashiers1 = new Cashier("Кассир_1", "cashier11", (byte)25 ,11);
+    Cashier cashiers2 = new Cashier("Кассир_2", "cashier22", (byte)22 ,12);
+
+    Cashier[] cashiers = {cashiers1,cashiers2};
 
     @Override
     public Receipt getReceipt(Order order) {
@@ -50,6 +52,15 @@ public class OperationalImpl implements Operation {
     }
 
     @Override
+    public Product getProductByName(String productName) {
+        for (Product item:products){
+            if(productName.equals(item.getName())){
+                return item;
+            }
+        }
+        return null;
+    }
+    @Override
     public  Product[] getInfo(Product[] products) {
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
@@ -58,4 +69,17 @@ public class OperationalImpl implements Operation {
         }
         return null;
     }
+
+    @Override
+    public Cashier getCashierByName(String cashier) {
+        for(Cashier item:cashiers){
+            if(item.getName().equals((cashier))){
+                return item;
+            }
+        }
+
+        return null;
+    }
+
+
 }
