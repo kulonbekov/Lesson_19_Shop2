@@ -46,13 +46,8 @@ public class Main {
                 System.out.println(item);
         }
 
-
-        /*for(Cashier item:cashiers){
-            if(item!=null)
-                System.out.println(item);
-        }*/
-
         System.out.println("Выберите кассира");
+        operation.getListCashier();
         String cashier = sc.next();
         Cashier res = operation.getCashierByName(cashier);
 
