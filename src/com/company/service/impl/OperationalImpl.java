@@ -36,6 +36,15 @@ public class OperationalImpl implements Operation {
             System.out.println(item.name());
         }
     }
+
+    @Override
+    public void getListCashier() {
+        for (int i = 0; i < cashiers.length; i++) {
+            System.out.println(cashiers[i].getName());
+        }
+
+    }
+
     @Override
     public Product[] getProductByCategory(String category) {
         Product[] result = new Product[10];
@@ -77,9 +86,6 @@ public class OperationalImpl implements Operation {
                 return item;
             }
         }
-
         return null;
     }
-
-
 }
