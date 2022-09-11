@@ -6,7 +6,7 @@ import com.company.models.*;
 
 public interface Operation {
     Receipt getReceipt(Order order);
-    Cashier getCashier(String name);
+    //Cashier getCashier(String name);
 
 
     void getCategory();
@@ -23,4 +23,6 @@ public interface Operation {
     Product getProductByName(String productName);
 
     Cashier getCashierByName(String cashier);
+
+    Receipt[] getInfo(Receipt receipts, ReceiptDetails[] receiptDetails);
 }

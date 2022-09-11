@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.enums.ProductCategory;
+
 import com.company.models.*;
 import com.company.service.Operation;
 import com.company.service.impl.OperationalImpl;
@@ -19,8 +19,8 @@ public class Main {
         Details[] details = new Details[10];
 
         while(answer!=1) {
-            System.out.println("Выберите категорию продуктов");
-
+            System.out.println();
+            System.out.println("Выберите категорию продуктов: ");
             operation.getCategory();
 
             String category = sc.next();
@@ -29,17 +29,17 @@ public class Main {
 
             operation.getInfo(products);
 
-            System.out.println("Выберите продукт");
+            System.out.println("\n"+"Выберите продукт");
 
             String productName = sc.next();
 
             Product product = operation.getProductByName(productName);
 
-            System.out.println("Выберите количество");
+            System.out.println("\n" + "Количество");
 
             int amount = sc.nextInt();
 
-            System.out.println("Выберите скидку");
+            System.out.println("\n" + "Скидка (процент)");
 
             int discount = sc.nextInt();
 
@@ -47,21 +47,22 @@ public class Main {
 
             details[count] = detail;
 
-            System.out.println("Продолжить 1 - нет, 0 - да");
+            System.out.println("\n" + "Продолжить 1 - нет, 0 - да");
 
             answer = sc.nextByte();
             count++;
             doubleSum = doubleSum + ((amount * product.getCost()) - ((product.getCost() * discount)/100));
         }
 
+        System.out.println("\n" + "Наименование товаров: ");
         for(Details item: details){
             if(item!=null)
                 System.out.println(item);
         }
-        System.out.println("Список кассиров");
+        System.out.println("\n" + "Кассиры: ");
         operation.getListCashier();
 
-        System.out.println("Выберите кассира");
+        System.out.println("\n" + "Введите имя кассира: ");
         String cashier = sc.next();
         Cashier res = operation.getCashierByName(cashier);
 
@@ -69,13 +70,9 @@ public class Main {
         order.setDetails(details);
         order.setCashier(res);
 
-        ReceiptDetails[] receiptDetails = new ReceiptDetails[10];
-        operation.getReceipt(order);
+        Receipt receipt = operation.getReceipt(order);
 
-
-
-
-
+        operation.getInfo(receipt, receipt.getReceiptDetails());
 
     }
 }
