@@ -2,20 +2,23 @@ package com.company.models;
 
 public class ReceiptDetails {
 
-    private String productName;
+    private String name;
     private double sum;
 
-    public ReceiptDetails(String productName, double sum) {
-        this.productName = productName;
+    public ReceiptDetails(String name, double sum) {
+        this.name = name;
         this.sum = sum;
     }
 
-    public String getProductName() {
-        return productName;
+    public ReceiptDetails() {
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getSum() {
@@ -24,5 +27,13 @@ public class ReceiptDetails {
 
     public void setSum(double sum) {
         this.sum = sum;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "названия = " + name +
+                ", сумма = " + sum
+                ;
     }
 }

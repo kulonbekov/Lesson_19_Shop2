@@ -38,11 +38,11 @@ public class Details {
 
     @Override
     public String toString() {
-        return "Details{" +
-                "product = " + product.getName() +
-                " cost = " + product.getCost()+
-                ", amount = " + amount +
-                ", discount = " + discount +
-                '}';
+        return
+                "наименование = " + product.getName() +
+                ", цена = " + product.getCost()+
+                ", кол-во = " + amount +
+                ", скидка = " + discount
+                ;
     }
 }
