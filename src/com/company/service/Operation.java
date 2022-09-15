@@ -8,17 +8,11 @@ public interface Operation {
     Receipt getReceipt(Order order);
     //Cashier getCashier(String name);
 
-
     void getCategory();
     void getListCashier();
 
-
-
     Product[] getProductByCategory(String category);
     Product[] getInfo(Product[] products);
-
-
-
 
     Product getProductByName(String productName);
 

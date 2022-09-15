@@ -4,9 +4,7 @@ import com.company.enums.*;
 import com.company.models.*;
 import com.company.products.*;
 import com.company.service.Operation;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
-import java.util.Arrays;
 
 
 public class OperationalImpl implements Operation {
@@ -18,17 +16,14 @@ public class OperationalImpl implements Operation {
 
     Product[] products = {sugar,milk,bread,water};
 
-    Cashier cashiers1 = new Cashier("Алена", "cashier11", (byte)25 ,11);
-    Cashier cashiers2 = new Cashier("Саша", "cashier22", (byte)22 ,12);
+    Cashier cashiers1 = new Cashier("Боб", "cashier11", (byte)25 ,11);
+    Cashier cashiers2 = new Cashier("Роман", "cashier22", (byte)22 ,12);
 
     Cashier[] cashiers = {cashiers1,cashiers2};
 
 
 
-    /*@Override
-    public Cashier getCashier(String name) {
-        return null;
-    }*/
+
     @Override
     public void getCategory() {
         int count = 1;
@@ -60,10 +55,10 @@ public class OperationalImpl implements Operation {
     }
     @Override
     public  Product[] getInfo(Product[] products) {
-        System.out.println("\n" + "Наименование товаров: " + "\n");
+        System.out.println("\n" + "Список товаров: " + "\n");
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
-                System.out.println(i+1 + "." + products[i].getName() + " "+ "(стомость:" + products[i].getCost()+ " сом)");
+                System.out.println(i+1 + "." + products[i].getName() + " "+ "(стомость: " + products[i].getCost()+ " сом)");
             }
         }
         return null;
@@ -133,10 +128,6 @@ public class OperationalImpl implements Operation {
         System.out.println("Итого без скидки:  =" + (receipts.getTotalSum() + receipts.getTotalDiscount()));
         System.out.println("Скидка: =" + receipts.getTotalDiscount());
         System.out.println("ИТОГ: =" + receipts.getTotalSum());
-
-
-
-
         return null;
     }
 }
